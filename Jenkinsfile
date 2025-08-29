@@ -53,5 +53,18 @@ pipeline {
                 }
             }
         }
+        // New stage to ensure email is sent
+        stage('Send Summary Email') {
+            steps {
+                script {
+                    emailext(
+                        subject: "Build Completed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                        body: "All stages completed.\nSee Jenkins console: ${env.BUILD_URL}",
+                        to: "${env.DEV_EMAIL}",
+                        attachLog: true
+                    )
+                }
+            }
+        }
     }
 }
