@@ -15,7 +15,15 @@ pipeline {
                         subject: "Test Passed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: "The Test stage was successful.\nSee Jenkins console: ${env.BUILD_URL}",
                         to: "${env.DEV_EMAIL}",
-                        attachLog: true
+                        attachLog: true,
+                        mimeType: 'text/html',
+                        replyTo: "${env.DEV_EMAIL}",
+                        from: "chanulyafernando18@gmail.com",
+                        smtpHost: "smtp.gmail.com",
+                        smtpPort: "587",
+                        useSsl: false,
+                        useTls: true,
+                        authentication: "chanulyafernando18@gmail.com:lyto irzw hyrf nhsa"
                     )
                 }
                 failure {
