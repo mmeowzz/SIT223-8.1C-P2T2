@@ -54,4 +54,17 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "Pipeline finished, sending summary email..."
+            emailext(
+                subject: "Pipeline Finished: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """Pipeline ${env.JOB_NAME} finished.
+Build Status: ${currentBuild.currentResult}
+See Jenkins console: ${env.BUILD_URL}""",
+                to: "${env.DEV_EMAIL}",
+                attachLog: true
+            )
+        }
+    }
 }
