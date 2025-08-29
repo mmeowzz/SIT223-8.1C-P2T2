@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DEV_EMAIL = 'cutiepiedinangi@gmail.com'
+        DEV_EMAIL = 'youlovemylife06@gmail.com'
     }
     stages {
         // Dummy Test stage
