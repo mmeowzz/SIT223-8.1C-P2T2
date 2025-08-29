@@ -9,7 +9,8 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        post {
+    }
+    post {
         success {
             emailext(
                 subject: "Tests Passed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
@@ -26,6 +27,5 @@ pipeline {
                 attachLog: true
             )
         }
-    }
     }
 }
