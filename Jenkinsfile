@@ -40,7 +40,7 @@ pipeline {
                         subject: "Security Scan Passed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: "The Security Scan stage was successful.\nSee Jenkins console: ${env.BUILD_URL}",
                         to: "${env.DEV_EMAIL}",
-                        attachLog: true'
+                        attachLog: true
                     )
                 }
                 failure {
