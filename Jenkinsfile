@@ -16,10 +16,6 @@ pipeline {
                         body: "The Test stage was successful.\nSee Jenkins console: ${env.BUILD_URL}",
                         to: "${env.DEV_EMAIL}",
                         attachLog: true
-                        // Add this line to use credentials
-                        from: 'chanulyafernando18@gmail.com',
-                        replyTo: 'chanulyafernando18@gmail.com',
-                        mimeType: 'text/plain'
                     )
                 }
                 failure {
@@ -28,10 +24,6 @@ pipeline {
                         body: "The Test stage failed.\nSee Jenkins console: ${env.BUILD_URL}",
                         to: "${env.DEV_EMAIL}",
                         attachLog: true
-                        // Add this line to use credentials
-                        from: 'chanulyafernando18@gmail.com',
-                        replyTo: 'chanulyafernando18@gmail.com',
-                        mimeType: 'text/plain'
                     )
                 }
             }
@@ -48,11 +40,7 @@ pipeline {
                         subject: "Security Scan Passed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: "The Security Scan stage was successful.\nSee Jenkins console: ${env.BUILD_URL}",
                         to: "${env.DEV_EMAIL}",
-                        attachLog: true
-                        // Add this line to use credentials
-                        from: 'chanulyafernando18@gmail.com',
-                        replyTo: 'chanulyafernando18@gmail.com',
-                        mimeType: 'text/plain'
+                        attachLog: true'
                     )
                 }
                 failure {
@@ -61,10 +49,6 @@ pipeline {
                         body: "The Security Scan stage failed.\nSee Jenkins console: ${env.BUILD_URL}",
                         to: "${env.DEV_EMAIL}",
                         attachLog: true
-                        // Add this line to use credentials
-                        from: 'chanulyafernando18@gmail.com',
-                        replyTo: 'chanulyafernando18@gmail.com',
-                        mimeType: 'text/plain'
                     )
                 }
             }
