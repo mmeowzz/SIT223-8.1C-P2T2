@@ -12,9 +12,9 @@ pipeline {
             post {
                 success {
                     emailext(
-                        subject: "Test Passed: ${environment.JOB_NAME} #${environment.BUILD_NUMBER}",
-                        body: "The Test stage was successful.\nSee Jenkins console: ${environment.BUILD_URL}",
-                        to: "${environment.DEV_EMAIL}",
+                        subject: "Test Passed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                        body: "The Test stage was successful.\nSee Jenkins console: ${env.BUILD_URL}",
+                        to: "${env.DEV_EMAIL}",
                         attachLog: true
                     )
                 }
