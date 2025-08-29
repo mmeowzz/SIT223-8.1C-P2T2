@@ -16,6 +16,10 @@ pipeline {
                         body: "The Test stage was successful.\nSee Jenkins console: ${env.BUILD_URL}",
                         to: "${env.DEV_EMAIL}",
                         attachLog: true
+                        // Add this line to use credentials
+                        from: 'chanulyafernando18@gmail.com',
+                        replyTo: 'chanulyafernando18@gmail.com',
+                        mimeType: 'text/plain'
                     )
                 }
                 failure {
